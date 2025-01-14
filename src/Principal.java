@@ -3,29 +3,37 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Principal extends JFrame{
-    private JPanel jpanelPrincipal;
-    private JTextField textFieldNome;
-    private JPanel Principal;
-    private JLabel jLabelTitulo;
-    private JLabel jLabelNome;
-    private JButton buttonEnviar;
+    private JMenuBar menuBar;
+    private JPanel panel1;
 
     public Principal(){
-        this.setTitle("teste");
-        this.setContentPane(jpanelPrincipal);
+        criacaoDoMenu();
+        this.setTitle("Sistema - Escola nova CB");
+        this.setContentPane(panel1);
         this.setSize(640,480);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setVisible(true);
-        buttonEnviar.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String texto = textFieldNome.getText();
-                JOptionPane.showInputDialog(null,texto);
-            }
-        });
     }
 
-    private void createUIComponents() {
-        // TODO: place custom component creation code here
+    public void criacaoDoMenu(){
+        this.setJMenuBar(menuBar);
+        JMenu arquivo = new JMenu("Arquivo");
+        JMenuItem opcao1 = new JMenuItem("Opção 1");
+        JMenuItem opcao2 = new JMenuItem("Opção 2");
+        arquivo.add(opcao1);
+        arquivo.add(opcao2);
+        JMenu manterAluno = new JMenu("Manter Alunos");
+        JMenuItem cadastro = new JMenuItem("Cadastrar");
+        JMenuItem editar = new JMenuItem("Edição");
+        manterAluno.add(cadastro);
+        manterAluno.add(editar);
+        menuBar.add(arquivo);
+        menuBar.add(manterAluno);
+        cadastro.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new CadastroDeAluno();
+            }
+        });
     }
 }
