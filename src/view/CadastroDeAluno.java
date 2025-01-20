@@ -1,3 +1,5 @@
+package view;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -11,6 +13,7 @@ public class CadastroDeAluno extends JFrame{
     private JButton buttonEnviar;
     private JTextField textFieldIdade;
     private JLabel jLabelIdade;
+    private JTextField textFieldTurma;
 
     public CadastroDeAluno(){
         this.setTitle("Sistema - Escola nova CB");
