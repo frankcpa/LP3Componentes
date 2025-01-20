@@ -1,6 +1,14 @@
 package model;
 
-public class PessoaModel {
+import javax.persistence.*;
+
+@Entity
+@Inheritance(strategy = InheritanceType.JOINED)
+@Table(name = "pessoa")
+public abstract class PessoaModel {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long idPessoa;
     private String nome;
     private int idade;
 

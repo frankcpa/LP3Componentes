@@ -1,3 +1,4 @@
+import view.CadastroDeAluno;
 import view.Principal;
 
 public class Main {
