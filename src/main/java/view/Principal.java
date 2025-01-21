@@ -26,8 +26,12 @@ public class Principal extends JFrame{
         arquivo.add(opcao2);
         JMenu manterAluno = new JMenu("Manter Alunos");
         JMenuItem cadastro = new JMenuItem("Cadastrar");
+        JMenuItem buscar = new JMenuItem("Buscar");
+        JMenuItem remover = new JMenuItem("Remover");
         JMenuItem editar = new JMenuItem("Edição");
         manterAluno.add(cadastro);
+        manterAluno.add(buscar);
+        manterAluno.add(remover);
         manterAluno.add(editar);
         menuBar.add(arquivo);
         menuBar.add(manterAluno);
@@ -35,6 +39,12 @@ public class Principal extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 new CadastroDeAluno();
+            }
+        });
+        buscar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new BuscarAluno();
             }
         });
     }

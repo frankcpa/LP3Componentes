@@ -27,4 +27,12 @@ public abstract class PessoaModel {
     public void setIdade(int idade) {
         this.idade = idade;
     }
+
+    public Long getIdPessoa() {
+        return idPessoa;
+    }
+
+    public void setIdPessoa(Long idPessoa) {
+        this.idPessoa = idPessoa;
+    }
 }

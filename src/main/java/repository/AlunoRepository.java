@@ -9,6 +9,7 @@ import javax.persistence.Persistence;
 import javax.swing.*;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.List;
 
 public class AlunoRepository {
@@ -45,26 +46,34 @@ public class AlunoRepository {
         }
     }
 
-    public void buscarTodos() {
+    public List<AlunoModel> buscarTodos() {
         try {
             List<AlunoModel> alunos = entityManager.createQuery("from AlunoModel").getResultList();
-
-            JOptionPane.showMessageDialog(null, alunos.toString());
+            return alunos;
         }catch (Exception e){
-
+            return new ArrayList<>();
         }
     }
 
-    public void remover(int id){
-        AlunoModel aluno;
+    public String remover(AlunoModel aluno){
         try {
-            aluno = entityManager.find(AlunoModel.class, id);
             entityManager.getTransaction().begin();
             entityManager.remove(aluno);
             entityManager.getTransaction().commit();
+            return "Removido com sucesso!";
+        } catch (Exception e) {
+            return e.getMessage();
+        }
+    }
+
+    public AlunoModel buscarPorId(Long id) {
+        AlunoModel aluno = new AlunoModel();
+        try {
+            aluno = entityManager.find(AlunoModel.class, id);
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return aluno;
     }
 
 }

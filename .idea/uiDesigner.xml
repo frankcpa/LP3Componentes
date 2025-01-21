@@ -131,7 +131,4 @@
     </group>
     <group name="Novo" />
   </component>
-  <component name="uidesigner-configuration">
-    <option name="DEFAULT_LAYOUT_MANAGER" value="BorderLayout" />
-  </component>
 </project>
